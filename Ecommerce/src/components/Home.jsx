@@ -1,4 +1,6 @@
-import Home_bag from '../assets/Bag_home.jpg'
+import Home_bag from '../assets/Bag_home.jpg';
+
+
 function Home() {
   return (<div>
     <h1>Welcome to Jason's Store</h1>
