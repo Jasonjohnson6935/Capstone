@@ -12,10 +12,21 @@ export const apiSlice = createApi({
   // The "endpoints" represent operations and requests for this server
   endpoints: (builder) => ({
     register: builder.mutation({
-      query: () => "/users",
+      query: (registerUser) => ({
+        url: "/users",
+        method: "POST",
+        body: registerUser,
     }),
+    }),
+    login:builder.mutation({
+        query: (loginUser) => ({
+            url: "/auth/login",
+            method: "POST",
+            body: loginUser,
+        }),
+    })
   }),
 });
 
 // Export the auto-generated hook for the `getPosts` query endpoint
-export const { useGetPostsQuery } = apiSlice;
+export const { useRegisterMutation, useLoginMutation } = apiSlice;
