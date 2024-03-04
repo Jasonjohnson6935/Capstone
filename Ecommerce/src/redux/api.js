@@ -25,8 +25,64 @@ export const apiSlice = createApi({
         body: loginUser,
       }),
     }),
+    account: builder.query({
+      query: (token) => ({
+        url: "/users/1",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    productList: builder.query({
+      query: (token) => ({
+        url: "/products",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ["Product"],
+    }),
+    productDetails: builder.query({
+      query: ({ token, id }) => ({
+        url: `/products/${id}`,
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ["Product"],
+    }),
+    addProduct: builder.mutation({
+      query: ({ token, body }) => ({
+        url: "/products",
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["Plant"],
+    }),
+    editProduct: builder.mutation({
+      query: ({ id, token, body }) => ({
+        url: `/product/${id}`,
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["Plant"],
+    }),
   }),
 });
 
 // Export the auto-generated hook for the `getPosts` query endpoint
-export const { useRegisterMutation, useLoginMutation } = apiSlice;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useAccountQuery,
+  useProductDetailsQuery,
+  useProductListQuery,
+  useAddProductMutation,
+  useEditProductMutation,
+} = apiSlice;

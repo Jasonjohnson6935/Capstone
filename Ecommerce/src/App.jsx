@@ -6,6 +6,10 @@ import Register from './components/Register';
 import Login from "./components/Login";
 import Account from "./components/Account";
 import NavBar from "./components/Navbar";
+import ProductList from "./components/ProductList";
+import ProductDetails from './components/ProductDetails';
+import AddProduct from './components/AddProduct';
+import EditProduct from './components/EditProduct';
 
 function App() {
   const [token, setToken] = useState(null);
