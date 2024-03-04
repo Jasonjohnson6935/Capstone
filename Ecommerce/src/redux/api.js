@@ -16,15 +16,15 @@ export const apiSlice = createApi({
         url: "/users",
         method: "POST",
         body: registerUser,
+      }),
     }),
+    login: builder.mutation({
+      query: (loginUser) => ({
+        url: "/auth/login",
+        method: "POST",
+        body: loginUser,
+      }),
     }),
-    login:builder.mutation({
-        query: (loginUser) => ({
-            url: "/auth/login",
-            method: "POST",
-            body: loginUser,
-        }),
-    })
   }),
 });
 
