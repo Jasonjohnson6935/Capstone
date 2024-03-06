@@ -10,6 +10,7 @@ import ProductList from "./components/ProductList";
 import ProductDetails from './components/ProductDetails';
 import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
+import Carts from './components/Cart';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -24,6 +25,11 @@ function App() {
           <Route path="/register" element={<Register setToken={setToken}/>} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/account" element={<Account token={token} />} />
+          <Route path="/products" element={<ProductList token={token}/> }/>
+          <Route path="/products" element={<AddProduct token={token}/> }/>
+          <Route path="/products/${id}" element={<ProductDetails token={token}/> }/>
+          <Route path="/product/${id}" element={<EditProduct token={token}/> }/>
+          <Route path="/carts" element={<Carts token={token}/> }/>                  
         </Routes>
       </BrowserRouter>
     </div>

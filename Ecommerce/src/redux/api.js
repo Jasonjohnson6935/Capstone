@@ -60,7 +60,7 @@ export const apiSlice = createApi({
         },
         body,
       }),
-      invalidatesTags: ["Plant"],
+      invalidatesTags: ["Product"],
     }),
     editProduct: builder.mutation({
       query: ({ id, token, body }) => ({
@@ -71,12 +71,62 @@ export const apiSlice = createApi({
         },
         body,
       }),
-      invalidatesTags: ["Plant"],
+      invalidatesTags: ["Product"],
+    }),
+    getCartList: builder.query({
+      query: (token) => ({
+        url: "/carts",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ["Cart"],
+    }),
+    getCart: builder.query({
+      query: ({ token, id }) => ({
+        url: `/carts/${id}`,
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+      providesTags: ["Cart"],
+    }),
+    addToCart: builder.mutation({
+      query: ({ token, body }) => ({
+        url: "/carts",
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["Cart"],
+    }),
+    updateCart: builder.mutation({
+      query: ({ id, token, body }) => ({
+        url: `/carts/${id}`,
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["Cart"],
+    }),
+    deleteCart: builder.mutation({
+      query: ({ id, token }) => ({
+        url: `/carts/${id}`,
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }),
+      invalidatesTags: ["Cart"],
     }),
   }),
 });
 
-// Export the auto-generated hook for the `getPosts` query endpoint
+// Export the auto-generated hooks for the endpoints
 export const {
   useRegisterMutation,
   useLoginMutation,
@@ -85,4 +135,9 @@ export const {
   useProductListQuery,
   useAddProductMutation,
   useEditProductMutation,
+  useGetCartListQuery,
+  useGetCartQuery,
+  useAddToCartMutation,
+  useUpdateCartMutation,
+  useDeleteCartMutation,
 } = apiSlice;

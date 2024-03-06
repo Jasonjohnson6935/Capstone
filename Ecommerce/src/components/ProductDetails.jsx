@@ -8,7 +8,7 @@ function ProductDetails({ token }) {
     const { data, error, isLoading } = useProductDetailsQuery({ token, id });
 
     const goToEditForm = () => {
-        navigate(`/product/${id}`);
+        navigate(`/products/${id}`);
     };
 
     if (isLoading) {
