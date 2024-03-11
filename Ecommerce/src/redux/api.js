@@ -64,7 +64,7 @@ export const apiSlice = createApi({
     }),
     editProduct: builder.mutation({
       query: ({ id, token, body }) => ({
-        url: `/product/${id}`,
+        url: `/products/${id}`,
         method: "PUT",
         headers: {
           authorization: `Bearer ${token}`,

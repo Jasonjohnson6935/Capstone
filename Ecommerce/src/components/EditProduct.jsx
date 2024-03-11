@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import { useEditProductMutation, useProductDetailsQuery } from "../redux/api";
 
 function EditProduct({token}) {
@@ -11,12 +10,13 @@ function EditProduct({token}) {
     title: "",
     price: "",
     description: "",
-    img_url: "",
+    image: "",
     category: "",
   });
-  const [error, setError] = useState(null);
   
-  const [addProduct] = useProductDetailsQuery({ token, id });
+  const [errorMsg, setError] = useState(null);
+  
+  const {data, error, isLoading} = useProductDetailsQuery({ token, id });
 
   useEffect(() => {
     setForm(data?.product);
@@ -38,7 +38,7 @@ function EditProduct({token}) {
     if (error) {
       setError("Something went wrong! Please try again.");
     } else {
-        navigate(`/productdetails/${id}`);
+        navigate(`/products/${id}`);
       }
     };
   
@@ -53,7 +53,7 @@ function EditProduct({token}) {
     return (
       <section>
         <h2>Edit Product</h2>
-      {error && <p>{error}</p>}
+      {errorMsg && <p>{errorMsg}</p>}
       <form>
         <label htmlFor="title">Title</label>
         <input value={form.title} name="title" onChange={handleChange} />

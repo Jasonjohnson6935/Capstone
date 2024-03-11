@@ -8,7 +8,7 @@ function ProductDetails({ token }) {
     const { data, error, isLoading } = useProductDetailsQuery({ token, id });
 
     const goToEditForm = () => {
-        navigate(`/products/${id}`);
+        navigate(`/products/:id`);
     };
 
     if (isLoading) {
@@ -33,12 +33,15 @@ function ProductDetails({ token }) {
 
     return (
         <section>
-            <h2>product Details</h2>
-            <img src={data.product.img_url} />
-            <h3>Name: {data.product.name}</h3>
-            <p>Category: {data.product.category}</p>
-            <h4>Description: {data.product.description}</h4>
+            <h2>Product Details</h2>
+            {data && <>
+            <img src={data.image} />
+            <h3>Name: {data.title}</h3>
+            <p>Category: {data.category}</p>
+            <h4>Description: {data.description}</h4>
+            <p>Price: {data.price}</p>
             <button onClick={goToEditForm}>Edit product</button>
+            </>}
         </section>
     );
 }

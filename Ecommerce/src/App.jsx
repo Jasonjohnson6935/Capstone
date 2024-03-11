@@ -27,8 +27,7 @@ function App() {
           <Route path="/account" element={<Account token={token} />} />
           <Route path="/products" element={<ProductList token={token}/> }/>
           <Route path="/products" element={<AddProduct token={token}/> }/>
-          <Route path="/products/${id}" element={<ProductDetails token={token}/> }/>
-          <Route path="/product/${id}" element={<EditProduct token={token}/> }/>
+          <Route path="/products/:id" element={<ProductDetails token={token}/> }/>
           <Route path="/carts" element={<Carts token={token}/> }/>                  
         </Routes>
       </BrowserRouter>
