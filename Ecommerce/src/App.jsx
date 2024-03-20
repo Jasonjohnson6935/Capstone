@@ -8,7 +8,6 @@ import Account from "./components/Account";
 import NavBar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import ProductDetails from './components/ProductDetails';
-import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
 import Carts from './components/Cart';
 
@@ -26,8 +25,7 @@ function App() {
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/account" element={<Account token={token} />} />
           <Route path="/products" element={<ProductList token={token}/> }/>
-          <Route path="/products" element={<AddProduct token={token}/> }/>
-          <Route path="/products/:id" element={<ProductDetails token={token}/> }/>
+          <Route path="/products/:id" element={<ProductDetails /> }/>
           <Route path="/carts" element={<Carts token={token}/> }/>                  
         </Routes>
       </BrowserRouter>

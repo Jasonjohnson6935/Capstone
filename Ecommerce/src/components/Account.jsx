@@ -17,7 +17,7 @@ function Account(props) {
    "phone":"1-570-236-7033",
    "__v":0}                                
    */
-   const { data, error, isLoading } = useAccountQuery(props.token);
+  const { data, error, isLoading } = useAccountQuery(props.token);
   console.log(props);
   console.log(props.token);
 
@@ -41,7 +41,7 @@ function Account(props) {
         <li>Id: </li>
         <li>Password: </li>
         <li>Phone: </li>
-        <li>__V </li>
+        <li>__V: </li>
       </ul>
       
     </section>

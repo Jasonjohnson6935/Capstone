@@ -14,7 +14,6 @@ function NavBar(props) {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">Product List</NavLink>
         <NavLink to="/account">Account</NavLink>
-        <NavLink to="/products">Add Product</NavLink>
         <NavLink to="/carts">Cart</NavLink>
         <a onClick={logoutUser}>Logout</a>
       </nav>
@@ -23,6 +22,7 @@ function NavBar(props) {
   return (
     <nav>
       <NavLink to="/">Home</NavLink>
+      <NavLink to="/products">Product List</NavLink>
       <NavLink to="/register">Register</NavLink>
       <NavLink to="/login">Login</NavLink>
     </nav>

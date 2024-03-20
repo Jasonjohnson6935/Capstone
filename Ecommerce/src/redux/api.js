@@ -51,17 +51,6 @@ export const apiSlice = createApi({
       }),
       providesTags: ["Product"],
     }),
-    addProduct: builder.mutation({
-      query: ({ token, body }) => ({
-        url: "/products",
-        method: "POST",
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-        body,
-      }),
-      invalidatesTags: ["Product"],
-    }),
     editProduct: builder.mutation({
       query: ({ id, token, body }) => ({
         url: `/products/${id}`,
