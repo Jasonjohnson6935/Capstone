@@ -8,7 +8,6 @@ import Account from "./components/Account";
 import NavBar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import ProductDetails from './components/ProductDetails';
-import EditProduct from './components/EditProduct';
 import Carts from './components/Cart';
 
 function App() {
